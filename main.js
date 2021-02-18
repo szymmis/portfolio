@@ -91,8 +91,8 @@ function makeStep(display, vertical = false) {
             : f.height / STEP_SPEED_DIVIDER
           : f.width / STEP_SPEED_DIVIDER;
         if (
-          (!reversed && x < 0 && x + step >= -step) ||
-          (reversed && x > 0 && x + step <= -step)
+          (!reversed && x < 0 && x + step >= 0) ||
+          (reversed && x > 0 && x + step <= 0)
         ) {
           display.setAttribute("data-timeout", TIMEOUT_MAX);
 
