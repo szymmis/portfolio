@@ -53,16 +53,18 @@ function initFrames() {
     });
   });
   document.querySelectorAll(".display-vertical").forEach((e) => {
+    const reversed = e.classList.contains(".--reversed");
+
     e.querySelectorAll("img").forEach((f, i) => {
       if (f.complete) {
         const ratio = f.naturalHeight / f.naturalWidth;
         f.style.position = "absolute";
-        f.style.top = `${-i * f.width * ratio}px`;
+        f.style.top = `${(reversed ? i : -i) * (f.width * ratio - 2)}px`;
       } else {
         f.addEventListener("load", () => {
           const ratio = f.naturalHeight / f.naturalWidth;
           f.style.position = "absolute";
-          f.style.top = `${-i * f.width * ratio}px`;
+          f.style.top = `${(reversed ? i : -i) * (f.width * ratio - 2)}px`;
         });
       }
     });
@@ -70,9 +72,12 @@ function initFrames() {
 }
 
 const TIMEOUT_MAX = 240;
+const STEP_SPEED_DIVIDER = 48;
 
 function makeStep(display, vertical = false) {
   const timeout = display.getAttribute("data-timeout") || TIMEOUT_MAX;
+
+  const reversed = display.classList.contains(".--reversed");
 
   if (timeout <= 0) {
     const imgs = display.querySelectorAll("img");
@@ -80,19 +85,26 @@ function makeStep(display, vertical = false) {
       for (let i = 0; i < imgs.length; i++) {
         const f = imgs[i];
         const x = vertical ? getTop(f) : getLeft(f);
-        const step = vertical ? f.height / 16 : f.width / 16;
-        if (x < 0 && x + step >= 0) {
+        const step = vertical
+          ? reversed
+            ? -f.height / STEP_SPEED_DIVIDER
+            : f.height / STEP_SPEED_DIVIDER
+          : f.width / STEP_SPEED_DIVIDER;
+        if (
+          (!reversed && x < 0 && x + step >= -step) ||
+          (reversed && x > 0 && x + step <= -step)
+        ) {
           display.setAttribute("data-timeout", TIMEOUT_MAX);
 
           f.style[vertical ? "top" : "left"] = `0px`;
 
           imgs[(i + 1) % imgs.length].style[vertical ? "top" : "left"] = `${
-            vertical ? -f.height : -f.width
+            vertical ? (reversed ? f.height - 1 : -f.height + 1) : -f.width
           }px`;
 
           imgs[i > 0 ? (i - 1) % imgs.length : imgs.length - 1].style[
             vertical ? "top" : "left"
-          ] = `${vertical ? f.height : f.width}px`;
+          ] = `${vertical ? (reversed ? -f.height : f.height) : f.width}px`;
 
           break;
         } else {
