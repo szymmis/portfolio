@@ -5,6 +5,8 @@ $github: #7b34b6;
 $grayish: #b0b0b0;
 $accent: #628eff;
 
+$bigScreen: 960px;
+
 @mixin button-gradient($bg, $bg2: $bg) {
   background: linear-gradient(0deg, $bg2 0%, $bg 100%);
 
@@ -43,7 +45,7 @@ body {
   width: 100%;
 
   font-size: Min(4vw, 46px);
-  @media (max-width: 960px) {
+  @media (max-width: $bigScreen) {
     font-size: 7vw;
   }
   @media (max-width: 600px) {
@@ -146,7 +148,7 @@ header {
     background-image: url("gfx/background.jpg");
     filter: blur(1px);
     background-size: auto calc(var(--vh, 1vh) * 100);
-    @media (min-width: 960px) {
+    @media (min-width: $bigScreen) {
       background-size: 100% 100%;
     }
     background-repeat: no-repeat;
@@ -247,7 +249,7 @@ section {
   // align-items: center;
   overflow: hidden;
 
-  @media (min-width: 960px) {
+  @media (min-width: $bigScreen) {
     &:nth-of-type(odd) .display {
       flex-direction: row-reverse;
 
@@ -261,7 +263,7 @@ section {
     width: Min(80vw, 1200px);
     display: flex;
 
-    @media (max-width: 960px) {
+    @media (max-width: $bigScreen) {
       flex-direction: column;
 
       &:nth-child(2n) {
@@ -281,7 +283,7 @@ section {
         padding-bottom: 1em;
       }
 
-      @media (min-width: 960px) {
+      @media (min-width: $bigScreen) {
         &:nth-child(2n) {
           padding-top: 0;
           padding-left: 4%;
@@ -315,7 +317,7 @@ section {
       border: 1px solid black;
       display: flex;
 
-      @media (min-width: 960px) {
+      @media (min-width: $bigScreen) {
         width: 65%;
       }
 
@@ -330,7 +332,7 @@ section {
     .vertical-collection {
       display: flex;
 
-      @media (min-width: 800px) {
+      @media (min-width: $bigScreen) {
         width: 45%;
       }
 
@@ -363,7 +365,7 @@ section {
   padding: 1em 0;
 
   .display {
-    @media (max-width: 960px) {
+    @media (max-width: $bigScreen) {
       flex-direction: column-reverse;
       margin: 0;
 
@@ -382,7 +384,7 @@ section {
     flex: 1;
 
     .frame {
-      @media (min-width: 960px) {
+      @media (min-width: $bigScreen) {
         width: 40%;
         height: Min(auto, 100px);
       }
