@@ -53,12 +53,26 @@ body {
   }
 }
 
+#language {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 0.8em;
+
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+  }
+}
+
 .github {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 16px;
+  top: 20px;
   right: 20px;
 
   text-decoration: none;
@@ -163,7 +177,7 @@ header {
   }
 
   h1 {
-    font-size: 1em;
+    font-size: 0.86em;
     b {
       color: $accent;
       font-weight: bold;
@@ -172,7 +186,7 @@ header {
 
   h2 {
     font-size: 0.58em;
-    margin-bottom: -0.4em;
+    margin-bottom: 0em;
   }
 
   h3 {

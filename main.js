@@ -1,4 +1,41 @@
+let LANGUAGE = EN;
+let ELEMENTS = [];
+
+function parseLanguage() {
+  LANGUAGE = localStorage.getItem("lang") == "en" ? EN : PL;
+  document.querySelector("#language").src = `gfx/icons/${
+    LANGUAGE == EN ? "pl" : "gb"
+  }.svg`;
+  if (ELEMENTS.length == 0) {
+    document
+      .querySelectorAll("h1,h2,h3,p,b,i,a,label")
+      .forEach((e) => parseElement(e));
+  } else {
+    console.log(ELEMENTS.length);
+    ELEMENTS.forEach((e) => parseElement(e.e, e.text));
+    // ELEMENTS = [];
+  }
+}
+
+function parseElement(e, inner) {
+  let text = inner != undefined ? inner : e.innerHTML;
+  while (text.includes("{{") && text.includes("}}")) {
+    if (inner == undefined) ELEMENTS.push({ e, text });
+    const key = text.substring(text.indexOf("{{") + 2, text.indexOf("}}"));
+    const value = key.includes(".")
+      ? LANGUAGE[key.substr(0, key.indexOf("."))][
+          key.substr(key.indexOf(".") + 1, key.length)
+        ]
+      : LANGUAGE[key];
+    e.innerHTML = text =
+      text.substring(0, text.indexOf("{{")) +
+      value +
+      text.substring(text.indexOf("}}") + 2, text.length);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  parseLanguage();
   setVH();
   setFramesHeights();
   initFrames();
@@ -8,8 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
       setVH();
       setFramesHeights();
+      initFrames();
     });
   }
+
+  document.querySelector("#language").addEventListener("click", function () {
+    localStorage.setItem("lang", LANGUAGE == EN ? "pl" : "en");
+    LANGUAGE = LANGUAGE == EN ? PL : EN;
+    parseLanguage();
+    // window.location.reload();
+  });
 });
 
 function update() {
@@ -25,50 +70,54 @@ function setVH() {
   console.log(document.documentElement.style.getPropertyValue("--vh"));
 }
 
+function setFramesHeights() {
+  document
+    .querySelectorAll(".display-image, .display-vertical")
+    .forEach((e) => setHeights(e));
+}
+
 function setHeights(display) {
   const img = display.querySelector("img");
   const { width } = img;
   const ratio = img.naturalHeight / img.naturalWidth;
   if (img.complete) {
-    display.style.height = `${ratio * width}px`;
+    // display.style.width = `${Math.round(width)}px`;
+    display.style.height = `${Math.round(ratio * width)}px`;
   } else {
     img.addEventListener("load", () => {
       const { width } = img;
       const ratio = img.naturalHeight / img.naturalWidth;
-      display.style.height = `${ratio * width}px`;
+      // display.style.width = `${Math.round(width)}px`;
+      display.style.height = `${Math.round(ratio * width)}px`;
     });
   }
 }
 
-function setFramesHeights() {
-  document.querySelectorAll(".display-image").forEach((e) => setHeights(e));
-  document.querySelectorAll(".display-vertical").forEach((e) => setHeights(e));
-}
-
 function initFrames() {
   document.querySelectorAll(".display-image").forEach((e) => {
+    e.setAttribute("data-timeout", TIMEOUT_MAX);
+    const reversed = e.classList.contains("--reversed");
     e.querySelectorAll("img").forEach((f, i) => {
       f.style.position = "absolute";
-      f.style.left = `${-i * f.width}px`;
+      f.style.left = `${(reversed ? i : -i) * f.width}px`;
     });
   });
   document.querySelectorAll(".display-vertical").forEach((e) => {
-    const reversed = e.classList.contains(".--reversed");
-
+    e.setAttribute("data-timeout", TIMEOUT_MAX);
+    const reversed = e.classList.contains("--reversed");
     e.querySelectorAll("img").forEach((f, i) => {
-      if (f.complete) {
-        const ratio = f.naturalHeight / f.naturalWidth;
-        f.style.position = "absolute";
-        f.style.top = `${(reversed ? i : -i) * (f.width * ratio - 2)}px`;
-      } else {
-        f.addEventListener("load", () => {
-          const ratio = f.naturalHeight / f.naturalWidth;
-          f.style.position = "absolute";
-          f.style.top = `${(reversed ? i : -i) * (f.width * ratio - 2)}px`;
-        });
-      }
+      f.complete
+        ? setVerticalRatio(f, i, reversed)
+        : f.addEventListener("load", () => setVerticalRatio(f, i, reversed));
     });
   });
+}
+
+function setVerticalRatio(img, i, reversed) {
+  const ratio = img.naturalHeight / img.naturalWidth;
+  img.style.position = "absolute";
+  img.style.top = `${(reversed ? i : -i) * Math.round(img.width * ratio)}px`;
+  img.height = Math.round(img.width * ratio);
 }
 
 const TIMEOUT_MAX = 240;
@@ -77,43 +126,50 @@ const STEP_SPEED_DIVIDER = 48;
 function makeStep(display, vertical = false) {
   const timeout = display.getAttribute("data-timeout") || TIMEOUT_MAX;
 
-  const reversed = display.classList.contains(".--reversed");
+  const reversed = display.classList.contains("--reversed");
 
-  if (timeout <= 0) {
-    const imgs = display.querySelectorAll("img");
-    if (imgs.length > 2) {
+  const imgs = display.querySelectorAll("img");
+  if (imgs.length > 2) {
+    if (timeout <= 0) {
       for (let i = 0; i < imgs.length; i++) {
         const f = imgs[i];
         const x = vertical ? getTop(f) : getLeft(f);
-        const step = vertical
-          ? reversed
-            ? -f.height / STEP_SPEED_DIVIDER
-            : f.height / STEP_SPEED_DIVIDER
-          : f.width / STEP_SPEED_DIVIDER;
+        const step = Math.floor(
+          (reversed ? -1 : 1) *
+            (vertical
+              ? f.height / STEP_SPEED_DIVIDER
+              : f.width / STEP_SPEED_DIVIDER)
+        );
+
         if (
           (!reversed && x < 0 && x + step >= 0) ||
           (reversed && x > 0 && x + step <= 0)
         ) {
           display.setAttribute("data-timeout", TIMEOUT_MAX);
 
-          f.style[vertical ? "top" : "left"] = `0px`;
+          const next =
+            (vertical ? -f.height + 1 : -f.width) * (reversed ? -1 : 1);
 
-          imgs[(i + 1) % imgs.length].style[vertical ? "top" : "left"] = `${
-            vertical ? (reversed ? f.height - 1 : -f.height + 1) : -f.width
-          }px`;
+          const prev = (vertical ? f.height : f.width) * (reversed ? -1 : 1);
+
+          imgs[(i + 1) % imgs.length].style[
+            vertical ? "top" : "left"
+          ] = `${next}px`;
+
+          f.style[vertical ? "top" : "left"] = `0px`;
 
           imgs[i > 0 ? (i - 1) % imgs.length : imgs.length - 1].style[
             vertical ? "top" : "left"
-          ] = `${vertical ? (reversed ? -f.height : f.height) : f.width}px`;
+          ] = `${prev}px`;
 
           break;
         } else {
           f.style[vertical ? "top" : "left"] = `${x + step}px`;
         }
       }
+    } else {
+      display.setAttribute("data-timeout", timeout - 1);
     }
-  } else {
-    display.setAttribute("data-timeout", timeout - 1);
   }
 }
 
