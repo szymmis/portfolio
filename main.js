@@ -1,19 +1,21 @@
+import EN from "./lang/en";
+import PL from "./lang/pl";
+
+import pl_flag from "./gfx/icons/pl.svg";
+import en_flag from "./gfx/icons/gb.svg";
+
 let LANGUAGE = EN;
 let ELEMENTS = [];
 
 function parseLanguage() {
   LANGUAGE = localStorage.getItem("lang") == "en" ? EN : PL;
-  document.querySelector("#language").src = `gfx/icons/${
-    LANGUAGE == EN ? "pl" : "gb"
-  }.svg`;
+  document.querySelector("#language").src = LANGUAGE == EN ? pl_flag : en_flag;
   if (ELEMENTS.length == 0) {
     document
       .querySelectorAll("h1,h2,h3,p,b,i,a,label")
       .forEach((e) => parseElement(e));
   } else {
-    console.log(ELEMENTS.length);
     ELEMENTS.forEach((e) => parseElement(e.e, e.text));
-    // ELEMENTS = [];
   }
 }
 
@@ -53,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lang", LANGUAGE == EN ? "pl" : "en");
     LANGUAGE = LANGUAGE == EN ? PL : EN;
     parseLanguage();
-    // window.location.reload();
   });
 });
 

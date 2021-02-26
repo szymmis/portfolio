@@ -12,7 +12,7 @@ const EN = {
   info_titles: {
     uni: "University",
     email: "e-mail",
-    github: "Github"
+    github: "Github",
   },
   uni: "Cracow University of Technology",
   btn_projects: "See my projects",
@@ -43,3 +43,5 @@ const EN = {
     link: "Play me on GitHub",
   },
 };
+
+export default EN;

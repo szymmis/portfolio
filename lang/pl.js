@@ -43,3 +43,5 @@ const PL = {
     link: "Zagraj na GitHub",
   },
 };
+
+export default PL;
