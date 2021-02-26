@@ -8,7 +8,7 @@ let LANGUAGE = EN;
 let ELEMENTS = [];
 
 function parseLanguage() {
-  LANGUAGE = localStorage.getItem("lang") == "en" ? EN : PL;
+  LANGUAGE = localStorage.getItem("lang") == "pl" ? PL : EN;
   document.querySelector("#language").src = LANGUAGE == EN ? pl_flag : en_flag;
   if (ELEMENTS.length == 0) {
     document
@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setVH();
   setFramesHeights();
   initFrames();
-  requestAnimationFrame(update);
+
+  setInterval(update, 1000 / 60);
 
   if (window.innerWidth > 600) {
     window.addEventListener("resize", () => {
@@ -61,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function update() {
   fadeAnimation();
   stepFrames();
-  requestAnimationFrame(update);
 }
 
 function setVH() {
@@ -96,16 +96,16 @@ function setHeights(display) {
 
 function initFrames() {
   document.querySelectorAll(".display-image").forEach((e) => {
-    e.setAttribute("data-timeout", TIMEOUT_MAX);
     const reversed = e.classList.contains("--reversed");
+    e.setAttribute("data-timeout", TIMEOUT_MAX);
     e.querySelectorAll("img").forEach((f, i) => {
       f.style.position = "absolute";
       f.style.left = `${(reversed ? i : -i) * f.width}px`;
     });
   });
   document.querySelectorAll(".display-vertical").forEach((e) => {
-    e.setAttribute("data-timeout", TIMEOUT_MAX);
     const reversed = e.classList.contains("--reversed");
+    e.setAttribute("data-timeout", TIMEOUT_MAX);
     e.querySelectorAll("img").forEach((f, i) => {
       f.complete
         ? setVerticalRatio(f, i, reversed)
@@ -122,7 +122,7 @@ function setVerticalRatio(img, i, reversed) {
 }
 
 const TIMEOUT_MAX = 240;
-const STEP_SPEED_DIVIDER = 48;
+const STEP_SPEED_DIVIDER = 40;
 
 function makeStep(display, vertical = false) {
   const timeout = display.getAttribute("data-timeout") || TIMEOUT_MAX;
@@ -135,12 +135,11 @@ function makeStep(display, vertical = false) {
       for (let i = 0; i < imgs.length; i++) {
         const f = imgs[i];
         const x = vertical ? getTop(f) : getLeft(f);
-        const step = Math.floor(
+        const step =
           (reversed ? -1 : 1) *
-            (vertical
-              ? f.height / STEP_SPEED_DIVIDER
-              : f.width / STEP_SPEED_DIVIDER)
-        );
+          (vertical
+            ? f.height / STEP_SPEED_DIVIDER
+            : f.width / STEP_SPEED_DIVIDER);
 
         if (
           (!reversed && x < 0 && x + step >= 0) ||
@@ -148,8 +147,7 @@ function makeStep(display, vertical = false) {
         ) {
           display.setAttribute("data-timeout", TIMEOUT_MAX);
 
-          const next =
-            (vertical ? -f.height + 1 : -f.width) * (reversed ? -1 : 1);
+          const next = (vertical ? -f.height : -f.width) * (reversed ? -1 : 1);
 
           const prev = (vertical ? f.height : f.width) * (reversed ? -1 : 1);
 

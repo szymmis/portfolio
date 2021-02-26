@@ -1,9 +1,9 @@
 const PL = {
-  greeting: "Witaj!",
+  greeting: "Cześć!",
   im: "Jestem",
   quick_self_desc: "Student Informatyki i przyszły",
   full_desc:
-    "I'm interested in developing web apps and pages with the use of the newest technologies for about four years. In my free time, I practicing my skills and broadening my knowledge about React.js by making projects that I put up on my Github. Endurance and determination help me in realizing certain goals. Furthermore, my experience with different languages allows me easier and more effective absorption of new techs. Familiarity with the English language is another advantage as it allows me to freely read documentations. My purpose is to earn commercial experience by working with professionals.",
+    "Od czterech lat interesuję się tworzeniem stron i aplikacji internetowych, przy użyciu najnowszych technologii dostępnych na rynku. W wolnym czasie rozwijam swoje umiejętności i poszerzam wiedzę na temat React.js realizując projekty, które umieszczam na githubie. W osiąganiu określonych celów pomaga mi wytrwałość i determinacja. Ponadto, programowanie w przeszłości przy użyciu wielu języków pozwala mi na łatwiejsze i efektywniejsze przyswajanie nowych technologii. Dodatkowym atutem jest znajomość języka angielskiego na poziomie pozwlającym swobodnie korzystać z dokumentacji i zasobów wiedzy dostępnych w internecie. Moim celem jest nabranie doświadczenia zawodowego dzięki pracy przy komercyjnych projektach i rozwijanie swoich pasji.",
   my_stack: {
     coffee: "Kawa",
     thinking: "Myślenie analityczne",
@@ -21,25 +21,25 @@ const PL = {
   spanish_app: {
     title: "Aplikacja do nauki słówek",
     desc:
-      "I'm into learning spanish, so when I discovered that I lack some sort of tool to revise my vocabulary I started working on this project. React.js allowed me to keep this app small and simple but effective. Using Firebase I'm able to store different users dictionaries allowing them to use it on whatever device they wish to. As a user you can manage your set of words by adding or removing them as well as practising. With friendly and nice to look at UI, everyone should have fun using this web application!",
+      "W wolnych chwilach uczę się języka hiszpańskiego, więc potrzebowałem jakiegoś narzędzia do powtarzania słownictwa bo inaczej nici z postępów. Z racji moich zainteresowań postanowiłem samemu zrobić taką aplikację zamiast korzystać z tych dostępnych na rynku.W projekcie używam React.js dzięki czemu praca nad projektem jest bardzo przyjemna i satysfakcjonująca. Firebase umożliwia mi dostarczenie każdemu użytkownikowi unikalnych doświadczeń z aplikacją dzięki temu, że każdy może zarządzać swoim własnym słownikiem, by potem korzystając z niego ćwiczyć swoje słownictwo. Prosty ale elegancki desing z pewnością sprawia, że korzystanie z tej aplikacji jest przyjemniejsze.",
     link: "Wypróbuj na GitHub",
   },
   mobile_app: {
     title: "Aplikacja do zarządzania zadaniami",
     desc:
-      "There are a million apps like this on the app store so why shouldn't I try making one myself too? Making something for mobile is also an opportunity to do things differently. It's a very simple application allowing you to keep your daily tasks in one place, you can put them into categories so you always know where to find them. By using React Native I was able to develop my app on both Android and iOS devices with one code-base.",
+      "Skoro w sklepach z aplikacjami jest tyle takich jak ta, to dlaczego ja miałbym nie spróbować zrobić jej po swojemu? Możliwość oderwania się od tworzenia wyłącznie stron i aplikacji internetowych na rzecz programowania mobilengo jest dobrym sposobem na otwarcie głowy na świeże pomysły, tak więc zacząłem pracować nad tą aplikacją. Dzięki użyciu React Native zamiast natywnych rozwiązań byłem w stanie napisać aplikację na dwa systemy mając tylko jedną wersję kodu, co sprawia, że praca nad tym projektem jest bardzo prosta i przyjemna.",
     link: "Zobacz na GitHub",
   },
   filterninja: {
     title: "Aplikacja do edytcji filtrów",
     desc:
-      "As a fan of a certain video game with a complex ecosystem of tools, I found myself in a situation where I needed something to edit a special kind of files called loot filters because editing them in a Notepad was unacceptable as there is a lot of depth to handle. So I started developing this app, by using Electron I'm able to use every tool that is available to desktop application programmers such as file system, etc. Using API enables me to offer users some special abilities when editing their filters such as fetching real-time game data from the web.",
+      "Jako fan pewnej gry, która ma dość skomplikowany ekosystem narzędzi potrzebnych do wykorzystania wszystkich możliwości w pełni, znalazłem się w sytuacji, w której potrzebowałem czegoś do edycji specjalnego rodzaju plików – filtrów. Z racji tego, że są to zwykłe pliki tekstowe, możnaby je modyfikować w notatniku, ale jest to dość problematyczne ze względu na ich skomplikowaną strukturę. Zdecydowałem się na wykorzystanie technologii Electron w tym projekcie dzięki czemu jestem w stanie przy użyciu React.js i node.js stworzyć aplikacje desktopową i wykorzystać wszystkie dostępne dla niej narzędzia takie jak system plików. Dodatkowo, wykorzystując API daję użytkownikom możliwość użycia w swoich filtrach danych z gry, które pobierane są na żywo.",
     link: "Zobacz na GitHub",
   },
   commando: {
     title: "Port gry z C64",
     desc:
-      "My last JavaScript class assignment in high school was to make a remake of any Commodore64 game. I chose Commando when I was searching the web for some idea, as it's really fun to play fast-paced shooter. It was a really interesting project to do as I had to make everything from the ground-up. Moving, shooting, enemies and their AI, and many more. Despite having only one level it's a very engaging and hard game to play. You should give it a try!",
+      "Moim ostatnim zadaniem w technikum na zajęciach z programowania w JavaScript było wykonanie portu jakiejkolwiek gry z Commodore 64. Szukając inspiracji natrafiłem na grę Commando, którą zdecydowałem się wybrać ze względu na to, że jest to bardzo ciekawy i trudny shooter. Był to jeden z najbardziej interesujących projektów, ponieważ wszystko musiałem wykonać sam korzystając jedynie z narzędzi dostępnych w JSie. Zachęcam do przetestowania owoców mojej pracy i sprawdzenia swoich możliwości klikając w poniższy link.",
     link: "Zagraj na GitHub",
   },
 };
