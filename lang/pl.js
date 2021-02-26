@@ -21,19 +21,19 @@ const PL = {
   spanish_app: {
     title: "Aplikacja do nauki słówek",
     desc:
-      "W wolnych chwilach uczę się języka hiszpańskiego, więc potrzebowałem jakiegoś narzędzia do powtarzania słownictwa bo inaczej nici z postępów. Z racji moich zainteresowań postanowiłem samemu zrobić taką aplikację zamiast korzystać z tych dostępnych na rynku.W projekcie używam React.js dzięki czemu praca nad projektem jest bardzo przyjemna i satysfakcjonująca. Firebase umożliwia mi dostarczenie każdemu użytkownikowi unikalnych doświadczeń z aplikacją dzięki temu, że każdy może zarządzać swoim własnym słownikiem, by potem korzystając z niego ćwiczyć swoje słownictwo. Prosty ale elegancki desing z pewnością sprawia, że korzystanie z tej aplikacji jest przyjemniejsze.",
+      "W wolnych chwilach uczę się języka hiszpańskiego, więc potrzebowałem jakiegoś narzędzia do powtarzania słownictwa bo inaczej nici z postępów. Z racji moich zainteresowań postanowiłem samemu zrobić taką aplikację zamiast korzystać z tych dostępnych na rynku. W projekcie używam React.js, dzięki czemu praca nad projektem jest bardzo przyjemna i satysfakcjonująca. Firebase umożliwia mi dostarczenie każdemu użytkownikowi unikalnych doświadczeń z aplikacją dzięki temu, że każdy może zarządzać swoim własnym słownikiem, by potem korzystając z niego ćwiczyć swoje słownictwo. Prosty, ale elegancki desing z pewnością sprawia, że korzystanie z tej aplikacji jest przyjemniejsze.",
     link: "Wypróbuj na GitHub",
   },
   mobile_app: {
     title: "Aplikacja do zarządzania zadaniami",
     desc:
-      "Skoro w sklepach z aplikacjami jest tyle takich jak ta, to dlaczego ja miałbym nie spróbować zrobić jej po swojemu? Możliwość oderwania się od tworzenia wyłącznie stron i aplikacji internetowych na rzecz programowania mobilengo jest dobrym sposobem na otwarcie głowy na świeże pomysły, tak więc zacząłem pracować nad tą aplikacją. Dzięki użyciu React Native zamiast natywnych rozwiązań byłem w stanie napisać aplikację na dwa systemy mając tylko jedną wersję kodu, co sprawia, że praca nad tym projektem jest bardzo prosta i przyjemna.",
+      "Skoro w sklepach z aplikacjami jest tyle takich jak ta, to dlaczego ja miałbym nie spróbować zrobić jej po swojemu? Możliwość oderwania się od tworzenia wyłącznie stron i aplikacji internetowych na rzecz programowania mobilnego jest dobrym sposobem na otwarcie głowy na świeże pomysły, tak więc zacząłem pracować nad tą aplikacją. Dzięki użyciu React Native zamiast natywnych rozwiązań byłem w stanie napisać aplikację na dwa systemy mając tylko jedną wersję kodu co sprawia, że praca nad tym projektem jest bardzo prosta i przyjemna.",
     link: "Zobacz na GitHub",
   },
   filterninja: {
     title: "Aplikacja do edytcji filtrów",
     desc:
-      "Jako fan pewnej gry, która ma dość skomplikowany ekosystem narzędzi potrzebnych do wykorzystania wszystkich możliwości w pełni, znalazłem się w sytuacji, w której potrzebowałem czegoś do edycji specjalnego rodzaju plików – filtrów. Z racji tego, że są to zwykłe pliki tekstowe, możnaby je modyfikować w notatniku, ale jest to dość problematyczne ze względu na ich skomplikowaną strukturę. Zdecydowałem się na wykorzystanie technologii Electron w tym projekcie dzięki czemu jestem w stanie przy użyciu React.js i node.js stworzyć aplikacje desktopową i wykorzystać wszystkie dostępne dla niej narzędzia takie jak system plików. Dodatkowo, wykorzystując API daję użytkownikom możliwość użycia w swoich filtrach danych z gry, które pobierane są na żywo.",
+      "Jako fan pewnej gry, która ma dość skomplikowany ekosystem narzędzi potrzebnych do wykorzystania wszystkich możliwości w pełni, znalazłem się w sytuacji, w której potrzebowałem czegoś do edycji specjalnego rodzaju plików – filtrów. Z racji tego, że są to zwykłe pliki tekstowe, można by je modyfikować w notatniku, ale jest to dość problematyczne ze względu na ich skomplikowaną strukturę. Zdecydowałem się na wykorzystanie technologii Electron w tym projekcie, dzięki czemu jestem w stanie przy użyciu React.js i node.js stworzyć aplikacje desktopową i wykorzystać wszystkie dostępne dla niej narzędzia, takie jak system plików. Dodatkowo, wykorzystując API daję użytkownikom możliwość użycia w swoich filtrach danych z gry, które pobierane są na żywo.",
     link: "Zobacz na GitHub",
   },
   commando: {
