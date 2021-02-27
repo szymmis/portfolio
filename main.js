@@ -82,13 +82,11 @@ function setHeights(display) {
   const { width } = img;
   const ratio = img.naturalHeight / img.naturalWidth;
   if (img.complete) {
-    // display.style.width = `${Math.round(width)}px`;
     display.style.height = `${Math.round(ratio * width)}px`;
   } else {
     img.addEventListener("load", () => {
       const { width } = img;
       const ratio = img.naturalHeight / img.naturalWidth;
-      // display.style.width = `${Math.round(width)}px`;
       display.style.height = `${Math.round(ratio * width)}px`;
     });
   }
@@ -116,13 +114,14 @@ function initFrames() {
 
 function setVerticalRatio(img, i, reversed) {
   const ratio = img.naturalHeight / img.naturalWidth;
+  const height = Math.round(img.width * ratio);
   img.style.position = "absolute";
-  img.style.top = `${(reversed ? i : -i) * Math.round(img.width * ratio)}px`;
-  img.height = Math.round(img.width * ratio);
+  img.height = height;
+  img.style.top = `${(reversed ? i : -i) * height}px`;
 }
 
 const TIMEOUT_MAX = 240;
-const STEP_SPEED_DIVIDER = 40;
+const STEP_SPEED_DIVIDER = 60;
 
 function makeStep(display, vertical = false) {
   const timeout = display.getAttribute("data-timeout") || TIMEOUT_MAX;
@@ -181,13 +180,13 @@ function stepFrames() {
 
 function getLeft(element) {
   return element.style.left != undefined
-    ? Math.round(parseFloat(element.style.left.split("px")[0]))
+    ? parseFloat(element.style.left.split("px")[0])
     : 0;
 }
 
 function getTop(element) {
   return element.style.top != undefined
-    ? Math.round(parseFloat(element.style.top.split("px")[0]))
+    ? parseFloat(element.style.top.split("px")[0])
     : 0;
 }
 
