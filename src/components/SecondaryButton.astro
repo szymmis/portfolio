@@ -1,0 +1,28 @@
+---
+import ArrowIcon from "@/icons/Arrow.astro";
+import clsx from "clsx";
+
+interface Props {
+  label: string;
+  href?: string;
+}
+
+const { label, href } = Astro.props;
+const styles =
+  "text-primary hover:text-secondary transition-all active:translate-y-0.5 py-2.5 font-bold";
+---
+
+{
+  href ? (
+    <a href={href}>
+      <button class={clsx(styles, "flex group items-center")}>
+        <span class="group-hover:mr-3 mr-2 transition-all">{label}</span>
+        <span class="group-hover:mr-0 mr-1 transition-all">
+          <ArrowIcon />
+        </span>
+      </button>
+    </a>
+  ) : (
+    <button class={styles}>{label}</button>
+  )
+}

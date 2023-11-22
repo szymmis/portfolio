@@ -1,0 +1,18 @@
+---
+import GithubIcon from "@/icons/Github.astro";
+---
+
+<div class="relative w-[320px] h-[320px] group">
+  <img src="images/avatar.jpeg" class="absolute rounded-full" />
+  <a href="https://github.com/szymmis">
+    <img
+      src="images/avatar.png"
+      class="rounded-full absolute peer-hover:opacity-0 peer hover:opacity-0 duration-300 transition-opacity cursor-pointer"
+    />
+    <div
+      class="absolute right-7 bottom-7 text-primary bg-background rounded-full hover:text-secondary peer-hover:text-secondary transition-colors duration-300"
+    >
+      <GithubIcon />
+    </div>
+  </a>
+</div>
