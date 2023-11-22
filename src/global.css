@@ -16,6 +16,14 @@
 
 @font-face {
   font-family: FiraSans;
+  src: url("fonts/FiraSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: FiraSans;
   src: url("fonts/FiraSans-Bold.ttf");
   font-weight: bold;
   font-style: normal;
@@ -32,4 +40,11 @@ h5 {
 
 * {
   font-family: FiraSans;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b5b5ff;
 }

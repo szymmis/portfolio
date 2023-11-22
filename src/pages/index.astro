@@ -1,6 +1,8 @@
 ---
 import "global.css";
+
 import HeroSection from "@/components/Hero.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
 <html lang="en">
@@ -11,9 +13,10 @@ import HeroSection from "@/components/Hero.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="bg-background flex justify-center">
+  <body class="bg-background flex flex-col items-center justify-center">
     <div class="w-[1024px]">
       <HeroSection />
     </div>
+    <Footer />
   </body>
 </html>
