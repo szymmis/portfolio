@@ -8,7 +8,7 @@ export default {
         "background-dark": "#1A1430",
         primary: "#B5B5FF",
         secondary: "#C8C8FF",
-        tetriary: "#EAEAEA",
+        tetriary: "#E0E0E0",
       },
     },
   },

@@ -1,0 +1,30 @@
+---
+import ProjectEntry from "@/components/ProjectEntry.astro";
+import { PROJECTS } from "../data/projects.ts";
+import Paragraph from "@/components/Paragraph.astro";
+
+// import TechPill from "@/components/TechPill.astro";
+
+// const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
+---
+
+<div id="projects" class="pt-10 -mt-10">
+  <h2 class="text-4xl text-primary mb-4">My Projects</h2>
+
+  <Paragraph>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab omnis distinctio
+    quis voluptatibus dicta eum reiciendis qui, vitae ea libero nulla! Fugiat
+    facilis architecto velit amet. Aperiam ab explicabo maxime! Lorem ipsum
+    dolor sit amet consectetur adipisicing elit. Labore vel aliquam doloremque
+    cum quae reiciendis corrupti perspiciatis eius blanditiis, beatae error
+    necessitatibus. Vel laboriosam exercitationem dolor ipsum placeat at sequi.
+  </Paragraph>
+
+  <!-- <div class="flex space-x-2">
+    {usedTechnologies.map((tech) => <TechPill tech={tech} />)}
+  </div> -->
+
+  <div class="grid grid-cols-2 gap-12 gap-y-8 mt-8">
+    {PROJECTS.map((project) => <ProjectEntry project={project} />)}
+  </div>
+</div>

@@ -1,0 +1,37 @@
+---
+import TypeScript from "@/icons/TypeScript.astro";
+
+type Technology = {
+  title: string;
+  textColor: string;
+  bgColor: string;
+};
+
+const TECHNOLOGIES: Record<string, Technology> = {
+  typescript: {
+    title: "TypeScript",
+    textColor: "#D4E9FF",
+    bgColor: "#3178C6",
+  },
+  react: {
+    title: "React",
+    textColor: "#D4E9FF",
+    bgColor: "#3178C6",
+  },
+};
+
+interface Props {
+  tech: keyof typeof TECHNOLOGIES;
+}
+
+const { tech } = Astro.props;
+const technology = TECHNOLOGIES[tech];
+---
+
+<div
+  class="inline-flex select-none items-center space-x-1.5 font-semibold rounded-full py-1 px-3"
+  style={{ background: technology.bgColor, color: technology.textColor }}
+>
+  <TypeScript />
+  <span>{technology.title}</span>
+</div>

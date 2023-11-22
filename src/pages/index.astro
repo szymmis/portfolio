@@ -3,6 +3,7 @@ import "global.css";
 
 import HeroSection from "@/components/Hero.astro";
 import Footer from "@/components/Footer.astro";
+import Body from "@/components/Body.astro";
 ---
 
 <html lang="en">
@@ -11,12 +12,11 @@ import Footer from "@/components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Szymon Miśtal</title>
   </head>
   <body class="bg-background flex flex-col items-center justify-center">
-    <div class="w-[1024px]">
-      <HeroSection />
-    </div>
+    <HeroSection />
+    <Body />
     <Footer />
   </body>
 </html>

@@ -1,0 +1,38 @@
+---
+import TechPill from "@/components/TechPill.astro";
+import { type Project } from "../ts/Project";
+
+import StarIcon from "@/icons/Star.astro";
+import Paragraph from "@/components/Paragraph.astro";
+
+interface Props {
+  project: Project;
+}
+
+const {
+  project: { emoji, title, href, stars, description, techs },
+} = Astro.props;
+---
+
+<div>
+  <h3 class="text-primary text-2xl inline-flex space-x-3">
+    {emoji}
+    <a href={href} class="hover:underline font-[BreeSerif]">
+      {title}
+    </a>
+    {
+      stars && (
+        <span class="text-base inline-flex  items-center gap-x-1 mt-1.5">
+          <StarIcon />
+          <span>{stars}</span>
+        </span>
+      )
+    }
+  </h3>
+  <Paragraph>
+    {description}
+  </Paragraph>
+  <div>
+    {techs.map((tech) => <TechPill tech={tech} />)}
+  </div>
+</div>

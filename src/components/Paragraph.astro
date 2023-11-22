@@ -1,0 +1,13 @@
+---
+import clsx from "clsx";
+
+interface Props {
+  class?: string;
+}
+
+const props = Astro.props;
+---
+
+<p class={clsx("text-tetriary leading-7 my-3", props.class)}>
+  <slot />
+</p>
