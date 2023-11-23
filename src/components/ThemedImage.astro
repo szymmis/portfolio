@@ -1,0 +1,21 @@
+---
+import clsx from "clsx";
+interface Props {
+  src: string;
+  class?: string;
+}
+
+const { src, class: className } = Astro.props;
+---
+
+<div class={clsx("relative group", className)}>
+  <img src={src} class="top-0 grayscale hover:grayscale-0" />
+  <div
+    class="absolute top-0 w-full h-full pointer-events-none bg-primary mix-blend-multiply"
+  >
+  </div>
+  <img
+    src={src}
+    class="absolute top-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+  />
+</div>

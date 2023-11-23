@@ -5,15 +5,15 @@ import SecondaryButton from "@/components/SecondaryButton.astro";
 ---
 
 <div
-  class="flex flex-row justify-center items-center h-screen w-full bg-background-dark select-none"
+  class="flex flex-row items-center justify-center w-full h-screen select-none bg-background-dark"
 >
-  <div class="flex justify-between w-[1024px]">
+  <div class="flex justify-between items-center w-[1024px]">
     <div>
-      <h3 class="text-primary text-5xl">Hi, I'm</h3>
+      <h3 class="text-5xl text-primary">Hi, I'm</h3>
       <h1 class="text-primary text-[90px] -mt-8 -mb-2">Szymon Miśtal</h1>
-      <h2 class="text-tetriary text-5xl">Fullstack Developer</h2>
+      <h2 class="text-5xl text-tetriary">Fullstack Developer</h2>
 
-      <div class="mt-8 space-x-4 flex items-center">
+      <div class="flex items-center mt-8 space-x-4">
         <PrimaryButton label="See my work" href="#projects" />
         <SecondaryButton label="Get my resume" href="cv.pdf" />
       </div>
