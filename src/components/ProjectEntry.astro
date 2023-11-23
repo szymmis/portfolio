@@ -4,35 +4,45 @@ import { type Project } from "../ts/Project";
 
 import StarIcon from "@/icons/Star.astro";
 import Paragraph from "@/components/Paragraph.astro";
+import ThemedImage from "@/components/ThemedImage.astro";
 
 interface Props {
   project: Project;
 }
 
 const {
-  project: { emoji, title, href, stars, description, techs },
+  project: { emoji, title, href, imageSrc, stars, description, techs },
 } = Astro.props;
 ---
 
-<div>
-  <h3 class="text-primary text-2xl inline-flex space-x-3">
-    {emoji}
-    <a href={href} class="hover:underline font-[BreeSerif]">
-      {title}
-    </a>
+<a href={href}>
+  <div class="p-4 -mx-4 rounded-lg group hover:bg-background-dark">
+    <h3 class="inline-flex space-x-3 text-2xl text-primary">
+      <span class="font-[BreeSerif]">{emoji}{title}</span>
+      {
+        stars && (
+          <span class="text-base inline-flex  items-center gap-x-1 mt-1.5">
+            <StarIcon />
+            <span>{stars}</span>
+          </span>
+        )
+      }
+    </h3>
+
     {
-      stars && (
-        <span class="text-base inline-flex  items-center gap-x-1 mt-1.5">
-          <StarIcon />
-          <span>{stars}</span>
-        </span>
+      imageSrc && (
+        <ThemedImage
+          src={imageSrc}
+          class="mt-4 overflow-hidden rounded-lg aspect-video"
+        />
       )
     }
-  </h3>
-  <Paragraph>
-    {description}
-  </Paragraph>
-  <div>
-    {techs.map((tech) => <TechPill tech={tech} />)}
+
+    <Paragraph>
+      {description}
+    </Paragraph>
+    <div>
+      {techs.map((tech) => <TechPill tech={tech} />)}
+    </div>
   </div>
-</div>
+</a>
