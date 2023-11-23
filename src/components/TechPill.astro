@@ -1,10 +1,12 @@
 ---
 import TypeScript from "@/icons/TypeScript.astro";
+import React from "@/icons/React.astro";
 
 type Technology = {
   title: string;
   textColor: string;
   bgColor: string;
+  icon: (_props: any) => any;
 };
 
 const TECHNOLOGIES: Record<string, Technology> = {
@@ -12,11 +14,13 @@ const TECHNOLOGIES: Record<string, Technology> = {
     title: "TypeScript",
     textColor: "#D4E9FF",
     bgColor: "#3178C6",
+    icon: TypeScript,
   },
   react: {
     title: "React",
-    textColor: "#D4E9FF",
-    bgColor: "#3178C6",
+    textColor: "#E0F9FF",
+    bgColor: "#07A0C8",
+    icon: React,
   },
 };
 
@@ -26,12 +30,13 @@ interface Props {
 
 const { tech } = Astro.props;
 const technology = TECHNOLOGIES[tech];
+const Icon = technology.icon;
 ---
 
 <div
   class="inline-flex select-none items-center space-x-1.5 font-semibold rounded-full py-1 px-3"
   style={{ background: technology.bgColor, color: technology.textColor }}
 >
-  <TypeScript />
+  <span class="w-5 h-5"><Icon /></span>
   <span>{technology.title}</span>
 </div>
