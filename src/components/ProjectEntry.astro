@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-  project: { emoji, title, href, imageSrc, stars, description, techs },
+  project: { emoji, title, href, image, stars, description, techs },
 } = Astro.props;
 ---
 
@@ -30,9 +30,9 @@ const {
     </h3>
 
     {
-      imageSrc && (
+      image && (
         <ThemedImage
-          src={imageSrc}
+          src={image}
           alt={`'${title}' cover image`}
           class="w-full h-full mt-4 overflow-hidden rounded-lg aspect-video"
         />

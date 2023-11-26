@@ -1,25 +1,27 @@
 ---
+import { Image } from "astro:assets";
 import clsx from "clsx";
 interface Props {
-  src: string;
+  src: ImageMetadata;
   alt?: string;
   class?: string;
 }
 
-const { src, alt, class: className } = Astro.props;
+const { src, alt = "", class: className } = Astro.props;
 ---
 
 <div class={clsx("relative pointer-fine:group", className)}>
-  <img src={src} class="top-0 w-full h-full grayscale" alt={alt} />
+  <Image src={src} alt={alt} class="top-0 grayscale" />
   <div
     class="absolute top-0 w-full h-full pointer-events-none bg-primary mix-blend-multiply"
   >
   </div>
   <viewport-aware-img>
-    <img
+    <Image
       src={src}
+      alt=""
       aria-hidden="true"
-      class="absolute top-0 w-full h-full transition-opacity duration-300 opacity-0 pointer-fine:group-hover:opacity-100"
+      class="absolute top-0 transition-opacity duration-300 opacity-0 pointer-fine:group-hover:opacity-100"
     />
   </viewport-aware-img>
 </div>

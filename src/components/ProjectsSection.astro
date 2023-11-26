@@ -1,8 +1,7 @@
 ---
 import ProjectEntry from "@/components/ProjectEntry.astro";
-import { PROJECTS } from "../data/projects.ts";
+import { PROJECTS } from "@/data/projects.ts";
 import Paragraph from "@/components/Paragraph.astro";
-
 import TechPill from "@/components/TechPill.astro";
 
 const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
