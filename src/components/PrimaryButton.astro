@@ -17,13 +17,15 @@ const styles =
   href ? (
     <a href={href}>
       <button class={clsx(styles, "flex group items-center")}>
-        <span class="group-hover:mr-3 mr-2 transition-all">{label}</span>
-        <span class="group-hover:mr-0 mr-1 transition-all">
+        <span class="mr-2 transition-all group-hover:mr-3 whitespace-nowrap">
+          {label}
+        </span>
+        <span class="mr-1 transition-all group-hover:mr-0">
           <ArrowIcon />
         </span>
       </button>
     </a>
   ) : (
-    <button class={styles}>{label}</button>
+    <button class={clsx(styles, "whitespace-nowrap")}>{label}</button>
   )
 }

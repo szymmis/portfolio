@@ -8,14 +8,56 @@ interface Props {
 const { src, class: className } = Astro.props;
 ---
 
-<div class={clsx("relative group", className)}>
-  <img src={src} class="top-0 grayscale hover:grayscale-0" />
+<div class={clsx("relative pointer-fine:group", className)}>
+  <img src={src} class="top-0 w-full h-full grayscale" />
   <div
     class="absolute top-0 w-full h-full pointer-events-none bg-primary mix-blend-multiply"
   >
   </div>
-  <img
-    src={src}
-    class="absolute top-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-  />
+  <viewport-aware-img>
+    <img
+      src={src}
+      class="absolute top-0 w-full h-full transition-opacity duration-300 opacity-0 pointer-fine:group-hover:opacity-100"
+    />
+  </viewport-aware-img>
 </div>
+
+<script>
+  class ViewportAwareImage extends HTMLElement {
+    constructor() {
+      super();
+
+      function isWholeInViewport(el: HTMLElement) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function toggleClasses(el: HTMLElement) {
+        if (isWholeInViewport(el)) {
+          el.classList.add("opacity-100");
+        } else {
+          el.classList.remove("opacity-100");
+        }
+      }
+
+      if (!matchMedia("(pointer:fine").matches) {
+        const img = this.querySelector("img");
+        if (img) {
+          toggleClasses(img);
+          document.addEventListener("scroll", () => {
+            toggleClasses(img);
+          });
+        }
+      }
+    }
+  }
+
+  customElements.define("viewport-aware-img", ViewportAwareImage);
+</script>

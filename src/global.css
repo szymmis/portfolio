@@ -38,6 +38,10 @@ h5 {
   font-family: BreeSerif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   font-family: FiraSans;
   scroll-behavior: smooth;

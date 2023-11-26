@@ -10,6 +10,11 @@ export default {
         secondary: "#C8C8FF",
         tetriary: "#E0E0E0",
       },
+      screens: {
+        "pointer-fine": {
+          raw: "(pointer: fine)",
+        },
+      },
     },
   },
   plugins: [],
