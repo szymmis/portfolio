@@ -15,6 +15,10 @@ export default {
           raw: "(pointer: fine)",
         },
       },
+      fontFamily: {
+        sans: ["Fira Sans", "sans-serif"],
+        serif: ["Bree Serif", "serif"],
+      },
     },
   },
   plugins: [],
