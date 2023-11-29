@@ -19,7 +19,7 @@ const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
     necessitatibus. Vel laboriosam exercitationem dolor ipsum placeat at sequi.
   </Paragraph>
 
-  <div class="flex space-x-2">
+  <div class="flex gap-2 flex-wrap">
     {usedTechnologies.map((tech) => <TechPill tech={tech} />)}
   </div>
 

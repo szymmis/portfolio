@@ -1,0 +1,58 @@
+---
+import JavaScript from "@/icons/JavaScript.astro";
+import TypeScript from "@/icons/TypeScript.astro";
+import React from "@/icons/React.astro";
+import Rust from "@/icons/Rust.astro";
+import Node from "@/icons/Node.astro";
+import Linux from "@/icons/Linux.astro";
+import CSharp from "@/icons/CSharp.astro";
+import type { Technology } from "ts/Technology";
+
+export const TECHNOLOGIES: Record<string, Technology> = {
+  javascript: {
+    title: "JavaScript",
+    textColor: "#FFFFFF",
+    bgColor: "#e3a700",
+    icon: JavaScript,
+  },
+  typescript: {
+    title: "TypeScript",
+    textColor: "#D4E9FF",
+    bgColor: "#155BA8",
+    icon: TypeScript,
+  },
+  react: {
+    title: "React",
+    textColor: "#FFFFFF",
+    bgColor: "#007C9E",
+    icon: React,
+  },
+  rust: {
+    title: "Rust",
+    textColor: "#FFEDE1",
+    bgColor: "#DD5A00",
+    padding: 4,
+    icon: Rust,
+  },
+  express: {
+    title: "Express",
+    textColor: "#E9FFC6",
+    bgColor: "#365800",
+    padding: 4,
+    icon: Node,
+  },
+  shell: {
+    title: "Shell",
+    textColor: "#FFFFFF",
+    bgColor: "#A96F6F",
+    padding: 5,
+    icon: Linux,
+  },
+  csharp: {
+    title: "C#",
+    textColor: "#FFFFFF",
+    bgColor: "#4d307e",
+    icon: CSharp,
+  },
+};
+---

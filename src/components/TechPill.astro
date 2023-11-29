@@ -1,28 +1,6 @@
 ---
-import TypeScript from "@/icons/TypeScript.astro";
-import React from "@/icons/React.astro";
-
-type Technology = {
-  title: string;
-  textColor: string;
-  bgColor: string;
-  icon: (_props: any) => any;
-};
-
-const TECHNOLOGIES: Record<string, Technology> = {
-  typescript: {
-    title: "TypeScript",
-    textColor: "#D4E9FF",
-    bgColor: "#155BA8",
-    icon: TypeScript,
-  },
-  react: {
-    title: "React",
-    textColor: "#FFFFFF",
-    bgColor: "#007C9E",
-    icon: React,
-  },
-};
+import { TECHNOLOGIES } from "@/data/technologies.astro";
+import clsx from "clsx";
 
 interface Props {
   tech: keyof typeof TECHNOLOGIES;
@@ -34,9 +12,16 @@ const Icon = technology.icon;
 ---
 
 <div
-  class="inline-flex select-none items-center space-x-1.5 font-semibold rounded-full py-1 px-3"
-  style={{ background: technology.bgColor, color: technology.textColor }}
+  class="inline-flex select-none bg-background-dark pr-2 text-primary items-center space-x-1.5 font-semibold rounded-full"
+  style={{}}
 >
-  <span class="w-5 h-5"><Icon /></span>
-  <span>{technology.title}</span>
+  <span
+    class={clsx("w-7 h-7 rounded-full")}
+    style={{
+      background: technology.bgColor,
+      color: "white",
+      padding: `${technology.padding ?? 6}px`,
+    }}><Icon /></span
+  >
+  <span class="text-sm pb-0.5 font-serif font-normal">{technology.title}</span>
 </div>
