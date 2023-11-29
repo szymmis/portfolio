@@ -23,7 +23,7 @@ const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
     {usedTechnologies.map((tech) => <TechPill tech={tech} />)}
   </div>
 
-  <div class="grid mt-8 xl:gap-12 xl:grid-cols-2 xl:gap-y-8">
+  <div class="grid mt-8 xl:gap-12 xl:grid-cols-2 gap-y-4 xl:gap-y-8">
     {PROJECTS.map((project) => <ProjectEntry project={project} />)}
   </div>
 </div>
