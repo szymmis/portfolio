@@ -11,19 +11,17 @@ const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
   <h2 class="mb-4 text-4xl text-primary">My Projects</h2>
 
   <Paragraph>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab omnis distinctio
-    quis voluptatibus dicta eum reiciendis qui, vitae ea libero nulla! Fugiat
-    facilis architecto velit amet. Aperiam ab explicabo maxime! Lorem ipsum
-    dolor sit amet consectetur adipisicing elit. Labore vel aliquam doloremque
-    cum quae reiciendis corrupti perspiciatis eius blanditiis, beatae error
-    necessitatibus. Vel laboriosam exercitationem dolor ipsum placeat at sequi.
+    All of my work is hosted on GitHub but currently not every project is
+    publicly visible, as I have some self-imposed standards regarding README
+    documentation that still needs to be met. Various technologies listed below
+    were used to develop these projects.
   </Paragraph>
 
   <div class="flex gap-2 flex-wrap">
     {usedTechnologies.map((tech) => <TechPill tech={tech} />)}
   </div>
 
-  <div class="grid mt-8 xl:gap-12 xl:grid-cols-2 gap-y-4 xl:gap-y-8">
+  <div class="grid mt-4 xl:gap-12 xl:grid-cols-2 xl:gap-y-6">
     {PROJECTS.map((project) => <ProjectEntry project={project} />)}
   </div>
 </div>
