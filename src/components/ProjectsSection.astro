@@ -1,7 +1,6 @@
 ---
 import ProjectEntry from "@/components/ProjectEntry.astro";
 import { PROJECTS } from "@/data/projects.ts";
-import Paragraph from "@/components/Paragraph.astro";
 import TechPill from "@/components/TechPill.astro";
 
 const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
@@ -9,13 +8,6 @@ const usedTechnologies = [...new Set(PROJECTS.flatMap((p) => p.techs))];
 
 <div id="projects" class="pt-6 -mt-6">
   <h2 class="mb-4 text-4xl text-primary">My Projects</h2>
-
-  <Paragraph>
-    All of my work is hosted on GitHub but currently not every project is
-    publicly visible, as I have some self-imposed standards regarding README
-    documentation that still needs to be met. Various technologies listed below
-    were used to develop these projects.
-  </Paragraph>
 
   <div class="flex gap-2 flex-wrap">
     {usedTechnologies.map((tech) => <TechPill tech={tech} />)}
