@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
     image: ViteExpressImage,
     stars: "340+",
     description:
-      "My biggest pride, an open-source library that let's you easily integrate your express server with Vite frontend. With over 100k downloads on NPM and 340+ GitHub stars, it simplifies setups for demos, proofs of concept, and learning projects. It helped me understand internals of express and how middleware work, as well as how Vite serves files and how HMR work.",
+      "My biggest pride, an open-source library that let's you easily integrate your express server with Vite frontend. With almost 200k downloads on NPM and 400+ GitHub stars, it simplifies setups for demos, proofs of concept, and learning projects. It helped me understand internals of express and how middleware work, as well as how Vite serves files and how HMR works.",
     techs: ["typescript", "express"],
   },
   {
@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/szymmis/multipart",
     image: MultipartImage,
     description:
-      "I was doing a little demo app that was supposed to take a file input from the user, process it, then send back. As I needed a library for parsing form data I stumbled upon multer but it was too big for my app, and there was a lack of something small. I like learning by creating, so I've decided to mae a middleware that will be able to parse that form data. That's how this project was born and I've learned so much cool ideas in the process.",
+      "I was doing a little demo app that was supposed to take a file input from the user, process it, then send back. As I needed a library for parsing form data I stumbled upon multer but it was too big for my app, and there was a lack of something small. I like learning by creating, so I've decided to make a middleware that will be able to parse that form data. That's how this project was born and I've learned so much cool ideas in the process.",
     techs: ["typescript", "express"],
   },
   {
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/szymmis/space-kernel",
     image: KernelImage,
     description:
-      "This project holds a special place for me — it's written in Rust, which is a big deal these days. Beyond the trend, working on it taught me essential low-level concepts. I delved into understanding memory allocations, the distinctions between stack and heap, the true nature of pointers, and what it even means to allocate on the heap. These are aspects often taken for granted in out cozy high-level languages. This journey has been a fascinating adventure!",
+      "This project holds a special place for me — it's written in Rust, which is a big deal these days. Beyond the trend, working on it taught me essential low-level concepts. I delved into understanding memory allocations, the distinctions between stack and heap, the true nature of pointers, and what it even means to allocate on the heap. These are aspects often taken for granted in high-level languages. This journey has been a fascinating adventure!",
     techs: ["rust"],
   },
   {
@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/szymmis/commando.js",
     image: CommandoImage,
     description:
-      "Even though it's my first substantial JavaScript project with what I consider pretty crappy code, I'm still proud of it and often find myself going back to play a bit. You can even try it online with one playable level. It's a JavaScript port of a Commodore64 game called Commando, originally created for a high school project. I've got pretty good grade on this one, so maybe it isn't that bad after all?",
+      "Even though it's my first substantial JavaScript project with what I consider pretty crappy code, I'm still proud of it and often find myself going back to play a bit. You can even try it online with one playable level. It's a JavaScript port of a Commodore64 game called Commando, originally created for a high school project. I've gotten pretty good grade on this one, so maybe it isn't that bad after all?",
     techs: ["javascript"],
   },
 ];
