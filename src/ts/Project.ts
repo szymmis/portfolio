@@ -4,6 +4,7 @@ export interface Project {
   href: string;
   image?: ImageMetadata;
   stars?: string | number;
+  forks?: string | number;
   description: string;
   techs: string[];
 }

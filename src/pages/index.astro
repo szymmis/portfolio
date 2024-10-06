@@ -24,6 +24,12 @@ import Body from "@/components/Body.astro";
       href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.documentElement.style.scrollBehavior = "smooth";
+      });
+    </script>
   </head>
   <body class="flex flex-col items-center justify-center bg-background">
     <HeroSection />

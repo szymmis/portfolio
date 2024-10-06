@@ -15,9 +15,10 @@ export const PROJECTS: Project[] = [
     title: "Vite Express",
     href: "https://github.com/szymmis/vite-express",
     image: ViteExpressImage,
-    stars: "340+",
+    stars: "600+",
+    forks: "30+",
     description:
-      "My biggest pride, an open-source library that let's you easily integrate your express server with Vite frontend. With almost 200k downloads on NPM and 400+ GitHub stars, it simplifies setups for demos, proofs of concept, and learning projects. It helped me understand internals of express and how middleware work, as well as how Vite serves files and how HMR works.",
+      "My biggest pride, an open-source library that let's you easily integrate your express server with Vite frontend. With almost 500k downloads on NPM and 600+ GitHub stars, it simplifies setups for demos, proofs of concept, and learning projects. It helped me understand internals of express and how middleware work, as well as how Vite serves files and how HMR works.",
     techs: ["typescript", "express"],
   },
   {
